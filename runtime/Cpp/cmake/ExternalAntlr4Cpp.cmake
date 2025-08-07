@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.7)
+cmake_minimum_required(VERSION 3.10)
 
 if(POLICY CMP0114)
     cmake_policy(SET CMP0114 NEW)
@@ -12,7 +12,7 @@ set(ANTLR4_GIT_REPOSITORY https://github.com/antlr/antlr4.git)
 if(NOT DEFINED ANTLR4_TAG)
   # Set to branch name to keep library updated at the cost of needing to rebuild after 'clean'
   # Set to commit hash to keep the build stable and does not need to rebuild after 'clean'
-  set(ANTLR4_TAG master)
+  set(ANTLR4_TAG dev)
 endif()
 
 # Ensure that the include dir already exists at configure time (to avoid cmake erroring
@@ -97,7 +97,7 @@ if(ANTLR4_ZIP_REPOSITORY)
           -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}
           -DWITH_STATIC_CRT:BOOL=${ANTLR4_WITH_STATIC_CRT}
           -DDISABLE_WARNINGS:BOOL=ON
-          # -DCMAKE_CXX_STANDARD:STRING=17 # if desired, compile the runtime with a different C++ standard
+          # -DCMAKE_CXX_STANDARD:STRING=23 # if desired, compile the runtime with a different C++ standard
           # -DCMAKE_CXX_STANDARD:STRING=${CMAKE_CXX_STANDARD} # alternatively, compile the runtime with the same C++ standard as the outer project
       INSTALL_COMMAND ""
       EXCLUDE_FROM_ALL 1)
@@ -116,7 +116,7 @@ else()
           -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}
           -DWITH_STATIC_CRT:BOOL=${ANTLR4_WITH_STATIC_CRT}
           -DDISABLE_WARNINGS:BOOL=ON
-          # -DCMAKE_CXX_STANDARD:STRING=17 # if desired, compile the runtime with a different C++ standard
+          # -DCMAKE_CXX_STANDARD:STRING=23 # if desired, compile the runtime with a different C++ standard
           # -DCMAKE_CXX_STANDARD:STRING=${CMAKE_CXX_STANDARD} # alternatively, compile the runtime with the same C++ standard as the outer project
       INSTALL_COMMAND ""
       EXCLUDE_FROM_ALL 1)
