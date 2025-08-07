@@ -70,7 +70,8 @@ if (ANTLR_BUILD_CPP_TESTS)
 
   FetchContent_Declare(
     googletest
-    URL https://github.com/google/googletest/archive/refs/tags/v1.16.0.zip
+    URL https://github.com/google/googletest/archive/refs/tags/v1.17.0.zip
+    DOWNLOAD_EXTRACT_TIMESTAMP 1
   )
 
   if(WITH_STATIC_CRT)
